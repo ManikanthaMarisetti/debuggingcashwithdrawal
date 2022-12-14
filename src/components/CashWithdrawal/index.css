@@ -1,4 +1,4 @@
-.app-container {
+.cash-withdrawal-app-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,7 @@
   font-size: 14px;
 }
 
-.name {
+.username {
   color: #d4d2db;
   font-family: 'Roboto';
   font-size: 16px;
@@ -63,7 +63,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .name {
+  .username {
     font-size: 20px;
     margin-left: 16px;
   }
@@ -90,7 +90,7 @@
   }
 }
 
-.balance {
+.balance-amount {
   color: #d4d2db;
   font-family: 'Roboto';
   font-size: 24px;
@@ -99,7 +99,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .balance {
+  .balance-amount {
     font-size: 32px;
   }
 }

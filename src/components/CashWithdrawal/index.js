@@ -1,36 +1,38 @@
-import component from 'react'
+import {Component} from 'react'
 
 import DenominationItem from '../DenominationItem'
 
 import './index.css'
 
-const CashWithdrawal extends Component {
+class CashWithdrawal extends Component {
   state = {
     balance: 2000,
   }
 
   updateBalance = value => {
-    this.setstate(prevState => ({balance: prevState.balance - value}))
+    this.setState(prevState => ({balance: prevState.balance - value}))
   }
 
+  getFirstCharOfName = name => name.slice(0, 1)
+
   render() {
-    const {denomination} = this.props
+    const {denominationsList} = this.props
     const {balance} = this.state
     const name = 'Sarah Williams'
-    const initial = name.slice(0, 1)
+    const initial = this.getFirstCharOfName(name)
 
     return (
-      <div className="app-container">
+      <div className="cash-withdrawal-app-container">
         <div className="cash-withdrawal-container">
           <div className="user-details-container">
             <div className="initial-container">
               <p className="initial">{initial}</p>
             </div>
-            <p className="name">{name}</p>
+            <p className="username">{name}</p>
           </div>
           <div className="balance-container">
             <p className="your-balance">Your Balance</p>
-            <p className="balance">
+            <p className="balance-amount">
               {balance}
               <br />
               <span className="currency">In Rupees</span>
@@ -39,7 +41,7 @@ const CashWithdrawal extends Component {
           <p className="withdraw">Withdraw</p>
           <p className="choose-sum">CHOOSE SUM (IN RUPEES)</p>
           <ul className="denominations-list">
-            {denomination.map(eachDenomination => (
+            {denominationsList.map(eachDenomination => (
               <DenominationItem
                 key={eachDenomination.id}
                 denominationDetails={eachDenomination}
@@ -54,3 +56,4 @@ const CashWithdrawal extends Component {
 }
 
 export default CashWithdrawal
+
